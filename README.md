@@ -1,379 +1,756 @@
+# 📚 BookVault – Full-Stack E-Commerce Bookstore
 
 # 📚 BookVault# 📚 BookVault
 
+<div align="center">
 
+
+
+**Modern, secure, and scalable online bookstore platform with integrated payment gateway, admin dashboard, and real-time inventory management.**
 
 ### Modern Full-Stack Bookstore with Payment Integration### Your Trusted Digital Library & Bookstore Platform
 
+[![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
 
+[![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
 
-[![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white)](https://nodejs.org/)[![Node.js](https://img.shields.io/badge/Node.js-v14+-green.svg)](https://nodejs.org/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+
+[![Razorpay](https://img.shields.io/badge/Razorpay-02042B?style=for-the-badge&logo=razorpay&logoColor=3395FF)](https://razorpay.com/)[![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white)](https://nodejs.org/)[![Node.js](https://img.shields.io/badge/Node.js-v14+-green.svg)](https://nodejs.org/)
+
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
 [![Express](https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white)](https://expressjs.com/)[![Express](https://img.shields.io/badge/Express-4.18.2-blue.svg)](https://expressjs.com/)
 
+[Quick Start](#-quick-start) • [Features](#-features) • [Architecture](#-architecture) • [API](#-api) • [Deployment](#-deployment)
+
 [![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white)](https://www.mongodb.com/)[![MongoDB](https://img.shields.io/badge/MongoDB-8.1.3-green.svg)](https://www.mongodb.com/)
+
+</div>
 
 [![Razorpay](https://img.shields.io/badge/Razorpay-02042B?style=flat-square&logo=razorpay&logoColor=3395FF)](https://razorpay.com/)[![License](https://img.shields.io/badge/license-ISC-blue.svg)](LICENSE)
 
+---
 
+
+
+## 🎯 Features
 
 *A complete e-commerce bookstore with secure payment gateway, admin dashboard, and user management**A modern, full-stack e-commerce bookstore with secure payment integration, real-time inventory management, and an intuitive admin dashboard.*
 
+| Feature | Details |
+
+|---------|---------|
+
+| 🔐 **Authentication** | JWT-based auth, bcrypt password hashing, role-based access control |
+
+| 💳 **Payment Integration** | Razorpay gateway with secure order creation & verification |</div>[Features](#-features) • [Demo](#-demo) • [Installation](#-installation) • [Documentation](#-documentation) • [Contributing](#-contributing)
+
+| 🛡️ **Admin Dashboard** | Secret URL access, complete book/user/payment management |
+
+| 📚 **Book Management** | Full CRUD with image upload (multer), category organization |
+
+| 👥 **User System** | Registration, login, profile management, purchase history |
+
+| 🔍 **Advanced Search** | Filter by title, author, category; sort by relevance |---</div>
+
+| 📱 **Responsive UI** | Mobile-first design with Tailwind CSS & Font Awesome |
+
+| 🏗️ **Clean Architecture** | MVC pattern, RESTful APIs, middleware-based validation |
 
 
-</div>[Features](#-features) • [Demo](#-demo) • [Installation](#-installation) • [Documentation](#-documentation) • [Contributing](#-contributing)
+
+---## ✨ Key Features---
 
 
 
----</div>
+## 🛠️ Tech Stack
 
 
 
-## ✨ Key Features---
+**Backend:** Node.js, Express.js (4.18.2)  - 🔐 **Authentication** - Secure login/register with bcrypt & JWT---
 
+**Database:** MongoDB with Mongoose ODM  
 
-
-- 🔐 **Authentication** - Secure login/register with bcrypt & JWT---
-
-- 💳 **Payment Gateway** - Razorpay integration for secure transactions
-
-- 🛡️ **Admin Panel** - Complete dashboard for books, users & payments management## ✨ Features
-
-- 📚 **Book Management** - CRUD operations with image upload
-
-- 👥 **User Management** - Profile, purchase history, and account control<table>
-
-- 🔍 **Search & Filter** - Advanced book search by title, author, category<tr>
-
-- 📱 **Responsive Design** - Mobile-first UI with Tailwind CSS<td width="50%">
-
-- 🏗️ **MVC Architecture** - Clean, maintainable code structure
-
-### 🔐 **Authentication & Security**
-
----- Secure user registration and login
-
-- Password encryption with bcrypt
-
-## 🛠️ Tech Stack- JWT-based authentication
-
-- Session management
-
-**Backend:** Node.js, Express.js, MongoDB, Mongoose  - Role-based access control (User/Admin)
-
-**Frontend:** EJS Templates, Tailwind CSS, JavaScript  - Protected routes & middleware
+**Frontend:** EJS templates, Tailwind CSS, Vanilla JavaScript  - 💳 **Payment Gateway** - Razorpay integration for secure transactions
 
 **Authentication:** JWT, bcrypt, express-session  
 
-**Payment:** Razorpay Gateway  </td>
+**Payments:** Razorpay API  - 🛡️ **Admin Panel** - Complete dashboard for books, users & payments management## ✨ Features
 
-**File Upload:** Multer  <td width="50%">
+**File Handling:** Multer (image uploads)  
+
+**Security:** Environment variables, session management, input validation  - 📚 **Book Management** - CRUD operations with image upload
 
 
 
----### 👤 **User Features**
+---- 👥 **User Management** - Profile, purchase history, and account control<table>
 
-- Personalized user dashboard
 
-## 🚀 Quick Start- Browse extensive book catalog
 
-- Advanced search & filter by category
+## 📁 Project Structure- 🔍 **Search & Filter** - Advanced book search by title, author, category<tr>
 
-### Prerequisites- Real-time book availability
 
-- Node.js (v14+)- Secure payment integration (Razorpay)
+
+```- 📱 **Responsive Design** - Mobile-first UI with Tailwind CSS<td width="50%">
+
+bookvault/
+
+├── config/                 # Configuration files- 🏗️ **MVC Architecture** - Clean, maintainable code structure
+
+│   ├── db.js              # MongoDB connection
+
+│   └── multer.js          # File upload settings### 🔐 **Authentication & Security**
+
+├── controllers/           # Business logic
+
+│   ├── authController.js---- Secure user registration and login
+
+│   ├── adminController.js
+
+│   ├── bookController.js- Password encryption with bcrypt
+
+│   └── paymentController.js
+
+├── middleware/            # Express middleware## 🛠️ Tech Stack- JWT-based authentication
+
+│   ├── authMiddleware.js  # Authentication check
+
+│   └── adminMiddleware.js # Admin authorization- Session management
+
+├── models/               # Database schemas
+
+│   ├── Book.js**Backend:** Node.js, Express.js, MongoDB, Mongoose  - Role-based access control (User/Admin)
+
+│   ├── User.js
+
+│   ├── Category.js**Frontend:** EJS Templates, Tailwind CSS, JavaScript  - Protected routes & middleware
+
+│   └── Payment.js
+
+├── routes/               # API routes**Authentication:** JWT, bcrypt, express-session  
+
+│   ├── index.js          # Public routes
+
+│   ├── auth.js**Payment:** Razorpay Gateway  </td>
+
+│   ├── admin.js
+
+│   ├── user.js**File Upload:** Multer  <td width="50%">
+
+│   ├── api.js
+
+│   └── payment.js
+
+├── views/                # EJS templates
+
+│   ├── admin/           # Admin panel views---### 👤 **User Features**
+
+│   ├── user/            # User dashboard views
+
+│   ├── partials/        # Reusable components- Personalized user dashboard
+
+│   └── index.ejs        # Home page
+
+├── public/              # Static assets## 🚀 Quick Start- Browse extensive book catalog
+
+│   ├── css/style.css
+
+│   ├── js/              # Client-side scripts- Advanced search & filter by category
+
+│   └── uploads/books/   # Book cover images
+
+├── server.js            # Application entry point### Prerequisites- Real-time book availability
+
+├── seedCategories.js    # Database seeding
+
+└── package.json- Node.js (v14+)- Secure payment integration (Razorpay)
+
+```
 
 - MongoDB (v4+)- Purchase history tracking
 
+---
+
 - npm or yarn- Profile management
 
+## 🚀 Quick Start
 
 
-### Installation</td>
 
-</tr>
+### Prerequisites
 
-1. **Clone the repository**<tr>
+- **Node.js** v14+ | **MongoDB** v4+ | **npm/yarn**### Installation</td>
 
-```bash<td width="50%">
+
+
+### Installation (5 steps)</tr>
+
+
+
+```bash1. **Clone the repository**<tr>
+
+# 1. Clone repository
+
+git clone https://github.com/Kishor-04/Book-Store-App.git```bash<td width="50%">
+
+cd Book-Store-App/book-store
 
 git clone https://github.com/Kishor-04/Book-Store-App.git
 
-cd Book-Store-App/book-store### 🛡️ **Admin Panel**
+# 2. Install dependencies
 
-```- Secret URL access for admins
+npm installcd Book-Store-App/book-store### 🛡️ **Admin Panel**
 
-- Comprehensive dashboard with statistics
 
-2. **Install dependencies**- Full CRUD operations for books
 
-```bash- User management (create, edit, delete)
+# 3. Configure environment```- Secret URL access for admins
 
-npm install- Category management
+cp .env.example .env
+
+# Edit .env with your values:- Comprehensive dashboard with statistics
+
+# - MONGODB_URI=mongodb://localhost:27017/bookvault
+
+# - RAZORPAY_KEY_ID=your_key2. **Install dependencies**- Full CRUD operations for books
+
+# - RAZORPAY_KEY_SECRET=your_secret
+
+# - ADMIN_URL_PATH=/admin-secret-dashboard (customize this!)```bash- User management (create, edit, delete)
+
+
+
+# 4. Start MongoDBnpm install- Category management
+
+mongod  # or: net start MongoDB (Windows)
 
 ```- Payment transaction monitoring
 
-- Book image upload functionality
+# 5. Run application
 
-3. **Setup environment variables**- Real-time inventory tracking
+npm run dev     # Development mode with auto-reload- Book image upload functionality
 
-```bash
+npm start       # Production mode
 
-cp .env.example .env</td>
-
-```<td width="50%">
+```3. **Setup environment variables**- Real-time inventory tracking
 
 
 
-Edit `.env` file:### 💳 **Payment Integration**
+**Application runs at:** `http://localhost:5000````bash
 
-```env- Razorpay payment gateway
 
-PORT=5000- Secure transaction processing
 
-MONGODB_URI=mongodb://localhost:27017/bookvault- Payment verification & validation
+---cp .env.example .env</td>
 
-SESSION_SECRET=your_session_secret- Transaction history
 
-JWT_SECRET=your_jwt_secret- Order management
 
-ADMIN_URL_PATH=/admin-secret-dashboard- Receipt generation
+## 📍 Access Routes```<td width="50%">
+
+
+
+### 🌐 Public Routes
+
+| Route | Purpose |
+
+|-------|---------|Edit `.env` file:### 💳 **Payment Integration**
+
+| `/` | Home page with book catalog |
+
+| `/auth/login` | User login |```env- Razorpay payment gateway
+
+| `/auth/register` | Create new account |
+
+| `/categories` | Browse by category |PORT=5000- Secure transaction processing
+
+| `/about` | About us |
+
+| `/contact` | Contact information |MONGODB_URI=mongodb://localhost:27017/bookvault- Payment verification & validation
+
+
+
+### 👤 User Routes (Login Required)SESSION_SECRET=your_session_secret- Transaction history
+
+| Route | Purpose |
+
+|-------|---------|JWT_SECRET=your_jwt_secret- Order management
+
+| `/user/dashboard` | User dashboard & stats |
+
+| `/user/profile` | Manage profile |ADMIN_URL_PATH=/admin-secret-dashboard- Receipt generation
+
+| `/user/payments` | Purchase history |
 
 RAZORPAY_KEY_ID=your_razorpay_key- Payment status tracking (pending/completed/failed)
 
-RAZORPAY_KEY_SECRET=your_razorpay_secret
+### 🛡️ Admin Routes (Admin Only)
 
-```</td>
+| Route | Purpose |RAZORPAY_KEY_SECRET=your_razorpay_secret
 
-</tr>
+|-------|---------|
+
+| `/admin-secret-dashboard` | Admin dashboard |```</td>
+
+| `/admin-secret-dashboard/books` | Manage books (CRUD) |
+
+| `/admin-secret-dashboard/users` | Manage users |</tr>
+
+| `/admin-secret-dashboard/payments` | View transactions |
 
 4. **Start MongoDB**<tr>
 
+---
+
 ```bash<td width="50%">
+
+## 🔌 API Endpoints
 
 # Windows
 
-net start MongoDB### 🎨 **UI/UX**
+| Method | Endpoint | Description | Auth |
 
-- Responsive design (Mobile, Tablet, Desktop)
+|--------|----------|-------------|------|net start MongoDB### 🎨 **UI/UX**
 
-# Linux/Mac- Modern Tailwind CSS framework
+| GET | `/api/books` | Get books (with filters) | No |
+
+| GET | `/api/books/:id` | Get book details | No |- Responsive design (Mobile, Tablet, Desktop)
+
+| GET | `/api/categories` | Get all categories | No |
+
+| POST | `/payment/create-order` | Create payment order | Yes |# Linux/Mac- Modern Tailwind CSS framework
+
+| POST | `/payment/verify` | Verify payment signature | Yes |
 
 sudo systemctl start mongod- Font Awesome icons
 
+---
+
 ```- Smooth animations & transitions
+
+## 👤 Admin Setup
 
 - Toast notifications
 
+### Create First Admin User
+
 5. **Seed database (optional)**- Loading states & error handling
 
-```bash- Intuitive navigation
+**Option 1: MongoDB Shell**
 
-npm run seed
+```javascript```bash- Intuitive navigation
 
-```</td>
+use bookvault
 
-<td width="50%">
+db.users.insertOne({npm run seed
 
-6. **Run the application**
+  name: "Admin",
+
+  email: "admin@bookvault.com",```</td>
+
+  password: "$2a$10$...", // Use bcrypt to hash your password
+
+  role: "admin",<td width="50%">
+
+  isActive: true
+
+})6. **Run the application**
+
+```
 
 ```bash### 🚀 **Technical Features**
 
-npm run dev    # Development mode- MVC architecture pattern
+**Option 2: Update Existing User**
 
-npm start      # Production mode- RESTful API design
-
-```- AJAX-powered dynamic content
-
-- File upload with Multer
-
-Visit: **http://localhost:5000**- Image storage & management
-
-- Database seeding scripts
-
----- Environment-based configuration
-
-- ES6+ modern JavaScript
-
-## 📁 Project Structure
-
-</td>
-
-```</tr>
-
-bookvault/</table>
-
-├── config/              # Database & multer config
-
-├── controllers/         # Business logic---
-
-├── middleware/          # Auth & validation
-
-├── models/             # MongoDB schemas---
-
-├── routes/             # API routes
-
-├── views/              # EJS templates## 🎬 Demo
-
-│   ├── admin/          # Admin panel views
-
-│   ├── user/           # User dashboard views### Screenshots
-
-│   └── partials/       # Reusable components
-
-├── public/             # Static files & uploads<div align="center">
-
-└── server.js           # App entry point
-
-```#### 🏠 Home Page
-
-<img src="https://via.placeholder.com/800x400/2563eb/ffffff?text=BookVault+Home+Page" alt="Home Page" width="80%">
-
----
-
-#### � Book Catalog with Search & Filter
-
-## 🔑 Access Points<img src="https://via.placeholder.com/800x400/4f46e5/ffffff?text=Book+Catalog" alt="Book Catalog" width="80%">
-
-
-
-### Public Routes#### 🛡️ Admin Dashboard
-
-- Home: `http://localhost:5000/`<img src="https://via.placeholder.com/800x400/10b981/ffffff?text=Admin+Dashboard" alt="Admin Dashboard" width="80%">
-
-- Login: `http://localhost:5000/auth/login`
-
-- Register: `http://localhost:5000/auth/register`#### 💳 Payment Integration
-
-<img src="https://via.placeholder.com/800x400/f59e0b/ffffff?text=Payment+Gateway" alt="Payment Gateway" width="80%">
-
-### User Dashboard (Login Required)
-
-- Dashboard: `http://localhost:5000/user/dashboard`</div>
-
-- Purchase History: `http://localhost:5000/user/payments`
-
----
-
-### Admin Panel (Admin Role Required)
-
-- Admin Dashboard: `http://localhost:5000/admin-secret-dashboard`## 🛠️ Tech Stack
-
-- Manage Books: `http://localhost:5000/admin-secret-dashboard/books`
-
-- Manage Users: `http://localhost:5000/admin-secret-dashboard/users`<div align="center">
-
-- View Payments: `http://localhost:5000/admin-secret-dashboard/payments`
-
-### Backend
-
----![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
-
-![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)
-
-## 👤 Create Admin User![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
-
-![Mongoose](https://img.shields.io/badge/Mongoose-880000?style=for-the-badge&logo=mongoose&logoColor=white)
-
-### Method 1: MongoDB Shell
-
-```javascript### Frontend
-
-use bookvault![EJS](https://img.shields.io/badge/EJS-B4CA65?style=for-the-badge&logo=ejs&logoColor=black)
-
-![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-
-db.users.insertOne({![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-
-  name: "Admin",![Font Awesome](https://img.shields.io/badge/Font_Awesome-339AF0?style=for-the-badge&logo=fontawesome&logoColor=white)
-
-  email: "admin@bookvault.com",
-
-  password: "$2a$10$hashed_password_here",  // Use bcrypt### Payment & Storage
-
-  role: "admin",![Razorpay](https://img.shields.io/badge/Razorpay-02042B?style=for-the-badge&logo=razorpay&logoColor=3395FF)
-
-  isActive: true,![Multer](https://img.shields.io/badge/Multer-FF6C37?style=for-the-badge&logo=files&logoColor=white)
-
-  createdAt: new Date()
-
-})### Authentication & Security
-
-```![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)
-
-![bcrypt](https://img.shields.io/badge/bcrypt-338033?style=for-the-badge&logo=letsencrypt&logoColor=white)
-
-### Method 2: Update Existing User
-
-```javascript</div>
+```javascriptnpm run dev    # Development mode- MVC architecture pattern
 
 db.users.updateOne(
 
-  { email: "user@example.com" },---
+  { email: "user@example.com" },npm start      # Production mode- RESTful API design
 
   { $set: { role: "admin" } }
 
-)---
+)```- AJAX-powered dynamic content
 
 ```
 
-## 📁 Project Structure
+- File upload with Multer
 
 ---
 
+Visit: **http://localhost:5000**- Image storage & management
+
+## 🔐 Environment Variables
+
+- Database seeding scripts
+
+Create `.env` file with these required variables:
+
+---- Environment-based configuration
+
+```env
+
+# Server- ES6+ modern JavaScript
+
+PORT=5000
+
+NODE_ENV=development## 📁 Project Structure
+
+
+
+# Database</td>
+
+MONGODB_URI=mongodb://localhost:27017/bookvault
+
+```</tr>
+
+# Security (Use strong, random values!)
+
+SESSION_SECRET=your_super_secret_session_keybookvault/</table>
+
+JWT_SECRET=your_super_secret_jwt_key
+
+├── config/              # Database & multer config
+
+# Admin Panel (Change this to something obscure)
+
+ADMIN_URL_PATH=/admin-secret-dashboard├── controllers/         # Business logic---
+
+
+
+# Razorpay (Get from razorpay.com)├── middleware/          # Auth & validation
+
+RAZORPAY_KEY_ID=rzp_test_xxxxx
+
+RAZORPAY_KEY_SECRET=xxxxx├── models/             # MongoDB schemas---
+
 ```
 
-## 📋 API Endpointsbookvault/
+├── routes/             # API routes
 
-│
+> ⚠️ **Never commit `.env` to version control!**
+
+├── views/              # EJS templates## 🎬 Demo
+
+---
+
+│   ├── admin/          # Admin panel views
+
+## 🧰 Common Commands
+
+│   ├── user/           # User dashboard views### Screenshots
+
+```bash
+
+npm run dev          # Start with auto-reload (nodemon)│   └── partials/       # Reusable components
+
+npm start            # Production mode
+
+npm run seed         # Seed categories to database├── public/             # Static files & uploads<div align="center">
+
+npm install          # Install dependencies
+
+```└── server.js           # App entry point
+
+
+
+---```#### 🏠 Home Page
+
+
+
+## 🐛 Troubleshooting<img src="https://via.placeholder.com/800x400/2563eb/ffffff?text=BookVault+Home+Page" alt="Home Page" width="80%">
+
+
+
+| Problem | Solution |---
+
+|---------|----------|
+
+| **MongoDB connection refused** | Ensure MongoDB is running: `mongod` or `net start MongoDB` |#### � Book Catalog with Search & Filter
+
+| **Module not found error** | Run `npm install` to install all dependencies |
+
+| **Admin panel returns 404** | Verify `ADMIN_URL_PATH` in `.env` matches your URL |## 🔑 Access Points<img src="https://via.placeholder.com/800x400/4f46e5/ffffff?text=Book+Catalog" alt="Book Catalog" width="80%">
+
+| **Payment gateway error** | Check Razorpay keys in `.env` are correct |
+
+| **Session issues** | Ensure `SESSION_SECRET` is set in `.env` |
+
+| **File upload fails** | Check `/public/uploads/books/` exists and has write permissions |
+
+### Public Routes#### 🛡️ Admin Dashboard
+
+---
+
+- Home: `http://localhost:5000/`<img src="https://via.placeholder.com/800x400/10b981/ffffff?text=Admin+Dashboard" alt="Admin Dashboard" width="80%">
+
+## 📦 Dependencies
+
+- Login: `http://localhost:5000/auth/login`
+
+```json
+
+{- Register: `http://localhost:5000/auth/register`#### 💳 Payment Integration
+
+  "express": "^4.18.2",
+
+  "mongoose": "^8.1.3",<img src="https://via.placeholder.com/800x400/f59e0b/ffffff?text=Payment+Gateway" alt="Payment Gateway" width="80%">
+
+  "ejs": "^3.1.9",
+
+  "bcryptjs": "^2.4.3",### User Dashboard (Login Required)
+
+  "jsonwebtoken": "^9.0.2",
+
+  "razorpay": "^2.9.2",- Dashboard: `http://localhost:5000/user/dashboard`</div>
+
+  "multer": "^1.4.5-lts.1",
+
+  "express-session": "^1.18.0",- Purchase History: `http://localhost:5000/user/payments`
+
+  "connect-flash": "^0.1.1",
+
+  "dotenv": "^16.4.5"---
+
+}
+
+```### Admin Panel (Admin Role Required)
+
+
+
+---- Admin Dashboard: `http://localhost:5000/admin-secret-dashboard`## 🛠️ Tech Stack
+
+
+
+## 🔄 Database Schema- Manage Books: `http://localhost:5000/admin-secret-dashboard/books`
+
+
+
+### User Model- Manage Users: `http://localhost:5000/admin-secret-dashboard/users`<div align="center">
+
+```javascript
+
+{- View Payments: `http://localhost:5000/admin-secret-dashboard/payments`
+
+  name: String,
+
+  email: String (unique),### Backend
+
+  password: String (hashed),
+
+  role: "user" | "admin",---![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+
+  isActive: Boolean,
+
+  createdAt: Date![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)
+
+}
+
+```## 👤 Create Admin User![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
+
+
+
+### Book Model![Mongoose](https://img.shields.io/badge/Mongoose-880000?style=for-the-badge&logo=mongoose&logoColor=white)
+
+```javascript
+
+{### Method 1: MongoDB Shell
+
+  title: String,
+
+  author: String,```javascript### Frontend
+
+  description: String,
+
+  price: Number,use bookvault![EJS](https://img.shields.io/badge/EJS-B4CA65?style=for-the-badge&logo=ejs&logoColor=black)
+
+  category: ObjectId (ref: Category),
+
+  coverImage: String,![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+
+  isbn: String,
+
+  publishYear: Number,db.users.insertOne({![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+
+  stock: Number,
+
+  createdAt: Date  name: "Admin",![Font Awesome](https://img.shields.io/badge/Font_Awesome-339AF0?style=for-the-badge&logo=fontawesome&logoColor=white)
+
+}
+
+```  email: "admin@bookvault.com",
+
+
+
+### Payment Model  password: "$2a$10$hashed_password_here",  // Use bcrypt### Payment & Storage
+
+```javascript
+
+{  role: "admin",![Razorpay](https://img.shields.io/badge/Razorpay-02042B?style=for-the-badge&logo=razorpay&logoColor=3395FF)
+
+  user: ObjectId (ref: User),
+
+  book: ObjectId (ref: Book),  isActive: true,![Multer](https://img.shields.io/badge/Multer-FF6C37?style=for-the-badge&logo=files&logoColor=white)
+
+  razorpayOrderId: String,
+
+  razorpayPaymentId: String,  createdAt: new Date()
+
+  razorpaySignature: String,
+
+  amount: Number,})### Authentication & Security
+
+  status: "pending" | "completed" | "failed",
+
+  createdAt: Date```![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)
+
+}
+
+```![bcrypt](https://img.shields.io/badge/bcrypt-338033?style=for-the-badge&logo=letsencrypt&logoColor=white)
+
+
+
+---### Method 2: Update Existing User
+
+
+
+## 🚢 Deployment```javascript</div>
+
+
+
+### Using Herokudb.users.updateOne(
+
+```bash
+
+heroku create your-app-name  { email: "user@example.com" },---
+
+git push heroku main
+
+heroku config:set MONGODB_URI=your_mongodb_url  { $set: { role: "admin" } }
+
+heroku config:set RAZORPAY_KEY_ID=your_key
+
+heroku config:set RAZORPAY_KEY_SECRET=your_secret)---
+
+heroku open
+
+``````
+
+
+
+### Using Docker## 📁 Project Structure
+
+```dockerfile
+
+FROM node:18-alpine---
+
+WORKDIR /app
+
+COPY package*.json ./```
+
+RUN npm install --production
+
+COPY . .## 📋 API Endpointsbookvault/
+
+EXPOSE 5000
+
+CMD ["npm", "start"]│
+
+```
 
 | Method | Endpoint | Description |├── 📂 config/                    # Configuration files
 
+---
+
 |--------|----------|-------------|│   ├── db.js                     # MongoDB connection
+
+## 📊 Performance Tips
 
 | GET | `/api/books` | Get all books (with filters) |│   └── multer.js                 # File upload configuration
 
-| GET | `/api/books/:id` | Get single book |│
+- ✅ Use MongoDB indexes on frequently queried fields (email, category)
 
-| GET | `/api/categories` | Get all categories |├── 📂 controllers/               # Business logic controllers
+- ✅ Implement pagination for book listings| GET | `/api/books/:id` | Get single book |│
+
+- ✅ Cache category data on client-side
+
+- ✅ Optimize images before upload (max 5MB)| GET | `/api/categories` | Get all categories |├── 📂 controllers/               # Business logic controllers
+
+- ✅ Use Redis for session storage in production
 
 | POST | `/payment/create-order` | Create payment order |│   ├── adminController.js        # Admin operations
 
+---
+
 | POST | `/payment/verify` | Verify payment |│   ├── authController.js         # Authentication logic
+
+## 🔐 Security Best Practices
 
 │   ├── bookController.js         # Book CRUD operations
 
----│   ├── publicController.js       # Public pages
+- ✅ All passwords hashed with bcrypt (10 salt rounds)
 
-│   └── paymentController.js      # Payment processing
+- ✅ JWT tokens with expiration---│   ├── publicController.js       # Public pages
 
-## 🐛 Troubleshooting│
+- ✅ CSRF protection via session
+
+- ✅ Input validation on all forms│   └── paymentController.js      # Payment processing
+
+- ✅ Admin routes protected by middleware
+
+- ✅ Environment variables for sensitive data## 🐛 Troubleshooting│
+
+- ✅ Payment verification via signature validation
 
 ├── 📂 middleware/                # Express middleware
 
+---
+
 **MongoDB connection error?**  │   ├── authMiddleware.js         # User authentication
+
+## 📄 License
 
 → Ensure MongoDB is running: `net start MongoDB`│   ├── adminMiddleware.js        # Admin authorization
 
+**ISC License** – See [LICENSE](LICENSE) file for details
+
 │   └── validate.js               # Input validation
+
+---
 
 **Module not found?**  │
 
+## 👨‍💻 Author
+
 → Run: `npm install`├── 📂 models/                    # Mongoose schemas
 
-│   ├── Book.js                   # Book model
+**Kishor Khardekar**  
+
+GitHub: [@Kishor-04](https://github.com/Kishor-04)  │   ├── Book.js                   # Book model
+
+Email: kishor.khardekar@example.com
 
 **Admin panel 404?**  │   ├── User.js                   # User model
 
+---
+
 → Check `ADMIN_URL_PATH` in `.env` file│   ├── Category.js               # Category model
+
+<div align="center">
 
 │   └── Payment.js                # Payment transaction model
 
+### ⭐ If this project helps you, please give it a star!
+
 **Session issues?**  │
+
+**Built with ❤️ using Node.js, Express, MongoDB & Razorpay**
 
 → Verify `SESSION_SECRET` is set in `.env`├── 📂 routes/                    # Route definitions
 
+[Report Bug](https://github.com/Kishor-04/Book-Store-App/issues) • [Request Feature](https://github.com/Kishor-04/Book-Store-App/issues)
+
 │   ├── index.js                  # Public routes
+
+</div>
 
 ---│   ├── auth.js                   # Auth routes
 
