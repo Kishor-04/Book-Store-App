@@ -3,11 +3,21 @@ import crypto from 'crypto';
 import { Payment } from '../models/Payment.js';
 import { Book } from '../models/Book.js';
 
-// Initialize Razorpay
-const razorpay = new Razorpay({
-  key_id: process.env.RAZORPAY_KEY_ID,
-  key_secret: process.env.RAZORPAY_KEY_SECRET,
-});
+// Initialize Razorpay lazily to ensure env vars are loaded
+let razorpayInstance = null;
+
+const getRazorpayInstance = () => {
+  if (!razorpayInstance) {
+    if (!process.env.RAZORPAY_KEY_ID || !process.env.RAZORPAY_KEY_SECRET) {
+      throw new Error('Razorpay credentials not found in environment variables');
+    }
+    razorpayInstance = new Razorpay({
+      key_id: process.env.RAZORPAY_KEY_ID,
+      key_secret: process.env.RAZORPAY_KEY_SECRET,
+    });
+  }
+  return razorpayInstance;
+};
 
 // Create order
 export const createOrder = async (req, res) => {
@@ -18,6 +28,8 @@ export const createOrder = async (req, res) => {
     if (!book) {
       return res.status(404).json({ success: false, message: 'Book not found' });
     }
+
+    const razorpay = getRazorpayInstance();
 
     // Create Razorpay order
     const options = {

@@ -1,6 +1,7 @@
 import { Book } from '../models/Book.js';
 import { User } from '../models/User.js';
 import { Category } from '../models/Category.js';
+import { Payment } from '../models/Payment.js';
 
 // Admin Dashboard
 export const dashboard = async (req, res) => {
@@ -312,7 +313,6 @@ export const deleteUser = async (req, res) => {
 // Show payments
 export const showPayments = async (req, res) => {
   try {
-    const { default: Payment } = await import('../models/Payment.js');
     const payments = await Payment.find()
       .sort({ createdAt: -1 })
       .populate('user', 'name email')
