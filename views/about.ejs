@@ -1,0 +1,89 @@
+<%- include('partials/head') %>
+<body class="bg-gray-50">
+  <%- include('partials/navbar') %>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <%- include('partials/messages') %>
+
+    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+      <!-- Hero Section -->
+      <div class="bg-gradient-to-r from-blue-600 to-indigo-700 p-12 text-center text-white">
+        <h1 class="text-4xl font-bold mb-4">
+          <i class="fas fa-info-circle mr-3"></i> About BookStore
+        </h1>
+        <p class="text-xl">Your trusted source for books since 2024</p>
+      </div>
+
+      <!-- Content -->
+      <div class="p-8 md:p-12">
+        <div class="prose max-w-none">
+          <h2 class="text-2xl font-bold text-gray-800 mb-4">Our Story</h2>
+          <p class="text-gray-600 mb-6">
+            BookStore was founded with a simple mission: to make quality books accessible to everyone.
+            We believe in the power of reading to transform lives and broaden perspectives.
+          </p>
+
+          <h2 class="text-2xl font-bold text-gray-800 mb-4">What We Offer</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="text-center p-6 bg-blue-50 rounded-lg">
+              <i class="fas fa-book text-blue-600 text-4xl mb-3"></i>
+              <h3 class="font-bold text-lg mb-2">Vast Collection</h3>
+              <p class="text-gray-600 text-sm">
+                Thousands of books across multiple genres and categories
+              </p>
+            </div>
+            <div class="text-center p-6 bg-green-50 rounded-lg">
+              <i class="fas fa-tag text-green-600 text-4xl mb-3"></i>
+              <h3 class="font-bold text-lg mb-2">Best Prices</h3>
+              <p class="text-gray-600 text-sm">
+                Competitive pricing and special offers for our members
+              </p>
+            </div>
+            <div class="text-center p-6 bg-purple-50 rounded-lg">
+              <i class="fas fa-shipping-fast text-purple-600 text-4xl mb-3"></i>
+              <h3 class="font-bold text-lg mb-2">Fast Delivery</h3>
+              <p class="text-gray-600 text-sm">
+                Quick and reliable delivery to your doorstep
+              </p>
+            </div>
+          </div>
+
+          <h2 class="text-2xl font-bold text-gray-800 mb-4">Our Values</h2>
+          <ul class="space-y-3 text-gray-600 mb-6">
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-green-600 mr-3 mt-1"></i>
+              <span>Quality and authenticity in every book</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-green-600 mr-3 mt-1"></i>
+              <span>Customer satisfaction as our top priority</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-green-600 mr-3 mt-1"></i>
+              <span>Supporting authors and publishers</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-green-600 mr-3 mt-1"></i>
+              <span>Promoting literacy and education</span>
+            </li>
+          </ul>
+
+          <div class="bg-gray-50 p-6 rounded-lg text-center">
+            <p class="text-gray-700 mb-4">
+              Join thousands of happy readers today!
+            </p>
+            <% if (!isAuthenticated) { %>
+              <a href="/auth/register" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg inline-block transition">
+                <i class="fas fa-user-plus mr-2"></i> Get Started
+              </a>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <%- include('partials/footer') %>
+  <script src="/js/main.js"></script>
+</body>
+</html>

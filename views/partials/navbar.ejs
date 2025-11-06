@@ -1,0 +1,136 @@
+<nav class="bg-gradient-to-r from-blue-600 to-indigo-700 shadow-lg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16">
+      <!-- Logo and Brand -->
+      <div class="flex items-center">
+        <a href="/" class="flex items-center space-x-2">
+          <i class="fas fa-book text-white text-2xl"></i>
+          <span class="text-white font-bold text-xl">BookStore</span>
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-4">
+        <a href="/" class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition">
+          <i class="fas fa-home mr-1"></i> Home
+        </a>
+        <a href="/categories" class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition">
+          <i class="fas fa-th-large mr-1"></i> Categories
+        </a>
+        <a href="/about" class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition">
+          <i class="fas fa-info-circle mr-1"></i> About
+        </a>
+        <a href="/contact" class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition">
+          <i class="fas fa-envelope mr-1"></i> Contact
+        </a>
+        <a href="/help" class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition">
+          <i class="fas fa-question-circle mr-1"></i> Help
+        </a>
+
+        <% if (typeof isAuthenticated !== 'undefined' && isAuthenticated) { %>
+          <!-- Logged in user -->
+          <div class="relative">
+            <button id="profile-menu-btn" class="flex items-center space-x-2 text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition">
+              <i class="fas fa-user-circle text-xl"></i>
+              <span><%= user.name %></span>
+              <i class="fas fa-chevron-down text-xs"></i>
+            </button>
+            <div id="profile-dropdown" class="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-xl hidden z-50 overflow-hidden">
+              <!-- User Info Header -->
+              <div class="bg-gradient-to-r from-blue-600 to-indigo-700 px-4 py-3 text-white">
+                <div class="flex items-center space-x-3">
+                  <i class="fas fa-user-circle text-3xl"></i>
+                  <div>
+                    <p class="font-semibold text-sm"><%= user.name %></p>
+                    <p class="text-xs opacity-90"><%= user.email %></p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Menu Items -->
+              <div class="py-1">
+                <% if (isAdmin) { %>
+                  <a href="<%= adminPath %>" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 transition">
+                    <i class="fas fa-tachometer-alt mr-2 text-blue-600"></i> Admin Dashboard
+                  </a>
+                <% } else { %>
+                  <a href="/user/dashboard" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 transition">
+                    <i class="fas fa-tachometer-alt mr-2 text-blue-600"></i> My Dashboard
+                  </a>
+                <% } %>
+                <a href="/user/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 transition">
+                  <i class="fas fa-user mr-2 text-green-600"></i> My Profile
+                </a>
+                <div class="border-t border-gray-200"></div>
+                <a href="/auth/logout" class="block px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition">
+                  <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                </a>
+              </div>
+            </div>
+          </div>
+        <% } else { %>
+          <!-- Not logged in -->
+          <a href="/auth/login" class="text-white hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium transition">
+            <i class="fas fa-sign-in-alt mr-1"></i> Login
+          </a>
+          <a href="/auth/register" class="bg-white text-blue-600 hover:bg-gray-100 px-4 py-2 rounded-md text-sm font-medium transition">
+            <i class="fas fa-user-plus mr-1"></i> Register
+          </a>
+        <% } %>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="md:hidden flex items-center">
+        <button id="mobile-menu-btn" class="text-white focus:outline-none">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-blue-700">
+    <div class="px-2 pt-2 pb-3 space-y-1">
+      <a href="/" class="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-800">
+        <i class="fas fa-home mr-2"></i> Home
+      </a>
+      <a href="/categories" class="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-800">
+        <i class="fas fa-th-large mr-2"></i> Categories
+      </a>
+      <a href="/about" class="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-800">
+        <i class="fas fa-info-circle mr-2"></i> About
+      </a>
+      <a href="/contact" class="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-800">
+        <i class="fas fa-envelope mr-2"></i> Contact
+      </a>
+      <a href="/help" class="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-800">
+        <i class="fas fa-question-circle mr-2"></i> Help
+      </a>
+      
+      <% if (typeof isAuthenticated !== 'undefined' && isAuthenticated) { %>
+        <% if (isAdmin) { %>
+          <a href="<%= adminPath %>" class="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-800">
+            <i class="fas fa-tachometer-alt mr-2"></i> Admin Dashboard
+          </a>
+        <% } else { %>
+          <a href="/user/dashboard" class="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-800">
+            <i class="fas fa-tachometer-alt mr-2"></i> My Dashboard
+          </a>
+        <% } %>
+        <a href="/user/profile" class="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-800">
+          <i class="fas fa-user mr-2"></i> Profile
+        </a>
+        <a href="/auth/logout" class="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-800 border-t border-blue-600">
+          <i class="fas fa-sign-out-alt mr-2"></i> Logout
+        </a>
+      <% } else { %>
+        <a href="/auth/login" class="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-800">
+          <i class="fas fa-sign-in-alt mr-2"></i> Login
+        </a>
+        <a href="/auth/register" class="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-800">
+          <i class="fas fa-user-plus mr-2"></i> Register
+        </a>
+      <% } %>
+    </div>
+  </div>
+</nav>
