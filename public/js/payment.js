@@ -1,9 +1,8 @@
 // Payment functionality using Razorpay
 
-async function buyBook(bookId, bookTitle, bookPrice) {
+async function buyBook(bookId, bookTitle, bookPrice, button) {
   try {
     // Show loading
-    const button = event.target;
     const originalText = button.innerHTML;
     button.disabled = true;
     button.innerHTML = '<i class="fas fa-spinner fa-spin mr-1"></i> Processing...';
@@ -28,7 +27,7 @@ async function buyBook(bookId, bookTitle, bookPrice) {
       key: data.keyId,
       amount: data.order.amount,
       currency: data.order.currency,
-      name: 'BookStore',
+      name: 'BookVault',
       description: `Purchase: ${bookTitle}`,
       order_id: data.order.id,
       handler: async function (response) {
@@ -95,12 +94,21 @@ async function buyBook(bookId, bookTitle, bookPrice) {
     alert('Failed to initiate payment. Please try again.');
     
     // Reset button
-    if (event && event.target) {
-      event.target.disabled = false;
-      event.target.innerHTML = '<i class="fas fa-shopping-cart mr-1"></i> Buy Now';
-    }
+    button.disabled = false;
+    button.innerHTML = '<i class="fas fa-shopping-cart mr-1"></i> Buy Now';
   }
 }
 
-// Make function globally available
-window.buyBook = buyBook;
+// Event delegation for buy buttons
+document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('buy-book-btn') || e.target.closest('.buy-book-btn')) {
+      const button = e.target.classList.contains('buy-book-btn') ? e.target : e.target.closest('.buy-book-btn');
+      const bookId = button.getAttribute('data-book-id');
+      const bookTitle = button.getAttribute('data-book-title');
+      const bookPrice = parseFloat(button.getAttribute('data-book-price'));
+      
+      buyBook(bookId, bookTitle, bookPrice, button);
+    }
+  });
+});

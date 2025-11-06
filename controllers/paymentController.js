@@ -31,11 +31,15 @@ export const createOrder = async (req, res) => {
 
     const razorpay = getRazorpayInstance();
 
-    // Create Razorpay order
+    // Create Razorpay order with receipt limited to 40 characters
+    const timestamp = Date.now().toString().slice(-8); // Last 8 digits of timestamp
+    const bookIdShort = bookId.toString().slice(-10); // Last 10 chars of book ID
+    const receipt = `bk_${bookIdShort}_${timestamp}`; // Total: ~22 chars
+
     const options = {
       amount: book.price * 100, // amount in paise
       currency: 'INR',
-      receipt: `book_${bookId}_${Date.now()}`,
+      receipt: receipt,
     };
 
     const order = await razorpay.orders.create(options);

@@ -1,7 +1,7 @@
 {
-  "name": "bookstore-app",
+  "name": "bookvault-app",
   "version": "1.0.0",
-  "description": "Full-featured bookstore application with admin panel",
+  "description": "Full-featured bookvault application with admin panel",
   "main": "server.js",
   "type": "module",
   "scripts": {
@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "bookstore",
+    "bookvault",
     "express",
     "mongodb",
     "ejs",

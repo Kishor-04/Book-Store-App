@@ -9,7 +9,7 @@
     <div class="bg-white rounded-lg shadow-xl p-8 mb-8">
       <div class="text-center">
         <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-          <i class="fas fa-book-open text-blue-600"></i> Welcome to BookStore
+          <i class="fas fa-book-open text-blue-600"></i> Welcome to BookVault
         </h1>
         <p class="text-xl text-gray-600 mb-6">
           Discover your next favorite book from our vast collection
@@ -95,8 +95,10 @@
                     <span class="text-2xl font-bold text-green-600">₹<%= book.price.toFixed(2) %></span>
                     <% if (typeof isAuthenticated !== 'undefined' && isAuthenticated) { %>
                       <button 
-                        onclick="buyBook('<%= book._id %>', '<%= book.title %>', <%= book.price %>)"
-                        class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm transition"
+                        class="buy-book-btn bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm transition"
+                        data-book-id="<%= book._id %>"
+                        data-book-title="<%= book.title %>"
+                        data-book-price="<%= book.price %>"
                       >
                         <i class="fas fa-shopping-cart mr-1"></i> Buy Now
                       </button>
@@ -133,5 +135,6 @@
 
   <script src="/js/main.js"></script>
   <script src="/js/home.js"></script>
+  <script src="/js/payment.js"></script>
 </body>
 </html>

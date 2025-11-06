@@ -1,4 +1,4 @@
-// Main JavaScript for BookStore
+// Main JavaScript for BookVault
 
 // Utility functions
 const showLoading = () => {
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Export for use in other scripts
-window.BookStore = {
+window.BookVault = {
   showLoading,
   hideLoading,
   showError,

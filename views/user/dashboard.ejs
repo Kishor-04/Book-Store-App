@@ -34,6 +34,11 @@
             </a>
           </li>
           <li>
+            <a href="/payment/my-payments" class="text-gray-600 hover:text-blue-600">
+              <i class="fas fa-receipt mr-2"></i> My Purchases
+            </a>
+          </li>
+          <li>
             <a href="/categories" class="text-gray-600 hover:text-blue-600">
               <i class="fas fa-th-large mr-2"></i> Categories
             </a>
@@ -58,6 +63,65 @@
           <i class="fas fa-sign-out-alt mr-2"></i> Logout
         </a>
       </div>
+    </div>
+
+    <!-- Recent Purchases -->
+    <div class="mt-8 bg-white rounded-lg shadow-md p-6">
+      <h2 class="text-2xl font-bold text-gray-800 mb-4">
+        <i class="fas fa-shopping-bag mr-2"></i> Recent Purchases
+      </h2>
+
+      <% if (recentPayments && recentPayments.length > 0) { %>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <% recentPayments.forEach(payment => { %>
+            <div class="border rounded-lg p-4 hover:shadow-md transition">
+              <% if (payment.book) { %>
+                <div class="flex gap-3">
+                  <div class="w-16 h-20 bg-gradient-to-br from-blue-400 to-indigo-600 rounded flex items-center justify-center flex-shrink-0">
+                    <% if (payment.book.coverImage) { %>
+                      <img src="<%= payment.book.coverImage %>" alt="<%= payment.book.title %>" class="w-full h-full object-cover rounded">
+                    <% } else { %>
+                      <i class="fas fa-book text-white text-2xl"></i>
+                    <% } %>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="font-semibold text-gray-800 text-sm mb-1"><%= payment.book.title %></h3>
+                    <p class="text-gray-600 text-xs mb-2"><%= payment.book.author %></p>
+                    <p class="font-bold text-green-600 text-sm">₹<%= payment.amount.toFixed(2) %></p>
+                    <p class="text-xs text-gray-500 mt-1">
+                      <%= new Date(payment.createdAt).toLocaleDateString() %>
+                    </p>
+                    <% if (payment.status === 'completed') { %>
+                      <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded mt-1">
+                        <i class="fas fa-check-circle"></i> Completed
+                      </span>
+                    <% } else if (payment.status === 'pending') { %>
+                      <span class="inline-block bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded mt-1">
+                        <i class="fas fa-clock"></i> Pending
+                      </span>
+                    <% } %>
+                  </div>
+                </div>
+              <% } else { %>
+                <p class="text-gray-500 text-sm">Book details unavailable</p>
+              <% } %>
+            </div>
+          <% }) %>
+        </div>
+        <div class="mt-4 text-center">
+          <a href="/payment/my-payments" class="text-blue-600 hover:text-blue-800 font-semibold">
+            View All Purchases <i class="fas fa-arrow-right ml-1"></i>
+          </a>
+        </div>
+      <% } else { %>
+        <div class="text-center py-8">
+          <i class="fas fa-shopping-cart text-gray-400 text-5xl mb-3"></i>
+          <p class="text-gray-600">You haven't made any purchases yet.</p>
+          <a href="/" class="mt-4 inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition">
+            <i class="fas fa-book mr-2"></i> Browse Books
+          </a>
+        </div>
+      <% } %>
     </div>
   </main>
 

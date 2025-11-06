@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const fetchBooks = async () => {
     try {
-      BookStore.showLoading();
+      BookVault.showLoading();
       
       const params = new URLSearchParams();
       if (searchInput.value) params.append('search', searchInput.value);
@@ -23,13 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
       if (data.success) {
         renderBooks(data.data);
       } else {
-        BookStore.showError('Failed to load books');
+        BookVault.showError('Failed to load books');
       }
     } catch (error) {
       console.error('Fetch books error:', error);
-      BookStore.showError('An error occurred while loading books');
+      BookVault.showError('An error occurred while loading books');
     } finally {
-      BookStore.hideLoading();
+      BookVault.hideLoading();
     }
   };
 

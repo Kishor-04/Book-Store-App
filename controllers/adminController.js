@@ -73,7 +73,7 @@ export const createBook = async (req, res) => {
   } catch (error) {
     console.error('Create book error:', error);
     req.flash('error', error.message || 'Failed to create book');
-    res.redirect('back');
+    res.redirect(req.get('Referrer') || '/');
   }
 };
 
@@ -137,7 +137,7 @@ export const updateBook = async (req, res) => {
   } catch (error) {
     console.error('Update book error:', error);
     req.flash('error', error.message || 'Failed to update book');
-    res.redirect('back');
+    res.redirect(req.get('Referrer') || '/');
   }
 };
 
@@ -156,7 +156,7 @@ export const deleteBook = async (req, res) => {
   } catch (error) {
     console.error('Delete book error:', error);
     req.flash('error', 'Failed to delete book');
-    res.redirect('back');
+    res.redirect(req.get('Referrer') || '/');
   }
 };
 
@@ -183,18 +183,18 @@ export const toggleUserStatus = async (req, res) => {
 
     if (!user) {
       req.flash('error', 'User not found');
-      return res.redirect('back');
+      return res.redirect(req.get('Referrer') || '/');
     }
 
     user.isActive = !user.isActive;
     await user.save();
 
     req.flash('success', `User ${user.isActive ? 'activated' : 'deactivated'} successfully`);
-    res.redirect('back');
+    res.redirect(req.get('Referrer') || '/');
   } catch (error) {
     console.error('Toggle user status error:', error);
     req.flash('error', 'Failed to update user status');
-    res.redirect('back');
+    res.redirect(req.get('Referrer') || '/');
   }
 };
 
@@ -207,7 +207,7 @@ export const createUser = async (req, res) => {
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       req.flash('error', 'User with this email already exists');
-      return res.redirect('back');
+      return res.redirect(req.get('Referrer') || '/');
     }
 
     await User.create({
@@ -223,7 +223,7 @@ export const createUser = async (req, res) => {
   } catch (error) {
     console.error('Create user error:', error);
     req.flash('error', error.message || 'Failed to create user');
-    res.redirect('back');
+    res.redirect(req.get('Referrer') || '/');
   }
 };
 
@@ -281,7 +281,7 @@ export const updateUser = async (req, res) => {
   } catch (error) {
     console.error('Update user error:', error);
     req.flash('error', error.message || 'Failed to update user');
-    res.redirect('back');
+    res.redirect(req.get('Referrer') || '/');
   }
 };
 
@@ -291,7 +291,7 @@ export const deleteUser = async (req, res) => {
     // Prevent deleting own account
     if (req.params.id === req.session.userId) {
       req.flash('error', 'Cannot delete your own account');
-      return res.redirect('back');
+      return res.redirect(req.get('Referrer') || '/');
     }
 
     const deletedUser = await User.findByIdAndDelete(req.params.id);
@@ -306,7 +306,7 @@ export const deleteUser = async (req, res) => {
   } catch (error) {
     console.error('Delete user error:', error);
     req.flash('error', 'Failed to delete user');
-    res.redirect('back');
+    res.redirect(req.get('Referrer') || '/');
   }
 };
 
