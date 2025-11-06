@@ -1,268 +1,71 @@
-# 📚 BookVault# BookVault Application - MVC Architecture
-
-
-
-A full-stack e-commerce bookstore application built with Node.js, Express, MongoDB, and EJS. Features secure payment processing, admin panel, and modern responsive design.A full-stack bookvault management system built with Node.js, Express, MongoDB, and EJS templating. Features user authentication, admin panel, book management, and a responsive user interface.
-
-
-
-## ✨ Features## 🚀 Features
-
-
-
-- **User Authentication** - Secure registration/login with bcrypt & JWT- **User Authentication**: Registration, login, and session management
-
-- **Book Management** - Browse, search, and filter books by category- **Admin Panel**: Secret URL access for administrative operations
-
-- **Payment Gateway** - Razorpay integration for secure transactions- **Book Management**: Full CRUD operations for books
-
-- **Admin Dashboard** - Manage books, users, and view payment analytics- **Category System**: Organize books by categories
-
-- **Image Upload** - Book cover images with Multer- **User Management**: Admin can view and manage registered users
-
-- **Responsive UI** - Mobile-first design with Tailwind CSS- **Responsive Design**: Mobile-friendly UI with Tailwind CSS
-
-- **Purchase History** - Track user orders and transactions- **Search & Filter**: Real-time book search and category filtering
-
-- **RESTful API**: AJAX endpoints for dynamic content loading
-
-## 🚀 Quick Start
-
-## 📁 Project Structure
-
-### Prerequisites
-
-- Node.js (v14+)```
-
-- MongoDB (v4+)book-store/
-
-- npm├── config/
-
-│   └── db.js                 # MongoDB connection configuration
-
-### Installation├── controllers/
-
-│   ├── adminController.js    # Admin dashboard and management logic
-
-```bash│   ├── authController.js     # Authentication logic
-
-# Clone the repository│   ├── bookController.js     # Book API endpoints
-
-git clone https://github.com/Kishor-04/Book-Store-App.git│   └── publicController.js   # Public pages logic
-
-cd book-store├── middleware/
-
-│   ├── adminMiddleware.js    # Admin authorization
-
-# Install dependencies│   ├── authMiddleware.js     # User authentication
-
-npm install│   └── validate.js           # Input validation
-
-├── models/
-
-# Configure environment│   ├── Book.js               # Book schema
-
-cp .env.example .env│   ├── Category.js           # Category schema
-
-# Edit .env with your MongoDB URI and Razorpay credentials│   └── User.js               # User schema
-
-├── routes/
-
-# Seed categories (optional)│   ├── admin.js              # Admin routes
-
-npm run seed│   ├── api.js                # API routes
-
-│   ├── auth.js               # Authentication routes
-
-# Start the server│   ├── index.js              # Public routes
-
-npm start│   └── user.js               # User dashboard routes
-
-```├── views/
-
-│   ├── partials/             # Reusable EJS components
-
-Visit `http://localhost:5000`│   ├── admin/                # Admin panel views
-
-│   ├── user/                 # User dashboard views
-
-## 🔧 Environment Variables│   └── *.ejs                 # Public page templates
-
-├── public/
-
-```env│   ├── css/style.css         # Custom styles
-
-PORT=5000│   └── js/                   # Client-side JavaScript
-
-NODE_ENV=development├── utils/
-
-MONGODB_URI=mongodb://localhost:27017/bookvault│   └── helpers.js            # Utility functions
-
-SESSION_SECRET=your_session_secret├── .env.example              # Environment variables template
-
-JWT_SECRET=your_jwt_secret├── package.json              # Project dependencies
-
-ADMIN_URL_PATH=/admin-secret-dashboard└── server.js                 # Application entry point
-
-RAZORPAY_KEY_ID=your_razorpay_key_id```
-
-RAZORPAY_KEY_SECRET=your_razorpay_key_secret
-
-```## 🛠️ Installation
-
-
-
-## 📁 Project Structure### Prerequisites
-
-- Node.js (v14 or higher)
-
-```- MongoDB (v4 or higher)
-
-book-store/- npm or yarn
-
-├── config/          # Database & file upload configuration
-
-├── controllers/     # Business logic (admin, auth, payment)### Step 1: Navigate to Project Directory
-
-├── middleware/      # Authentication & authorization```bash
-
-├── models/          # MongoDB schemas (Book, User, Category, Payment)cd "d:/College Projects/Book Store App/book-store"
-
-├── routes/          # API endpoints```
-
-├── views/           # EJS templates
-
-├── public/          # Static assets (CSS, JS, images)### Step 2: Install Dependencies
-
-└── server.js        # Application entry point```bash
-
-```npm install
-
+<h1 align="center">BookVault</h1>
+<p align="center">A clean, full‑stack bookstore built with Node.js, Express, MongoDB, and EJS. Secure auth, admin panel, image uploads, and Razorpay payments — all in an elegant MVC setup.</p>
+
+## Features
+- User auth (register, login, session)
+- Admin panel (secret URL) with books, users, and payments management
+- Books CRUD with categories, search/sort, and image uploads (Multer)
+- Razorpay checkout with server‑side verification and purchase history
+- Responsive UI with Tailwind CSS and reusable EJS partials
+
+## Tech Stack
+- Backend: Node.js, Express, Mongoose (MongoDB)
+- Frontend: EJS, Tailwind CSS, Vanilla JS
+- Auth & sessions: bcryptjs, express-session, connect-flash
+- File upload: Multer (stores to public/uploads/books)
+- Payments: Razorpay (orders, verify, track)
+
+## Quick Start
+1) Install dependencies
+```bash
+npm install
 ```
-
-## 🔐 Admin Access
-
-### Step 3: Environment Configuration
-
-1. Create admin user in MongoDB:Create a `.env` file in the root directory:
-
-```javascript```bash
-
-db.users.insertOne({cp .env.example .env
-
-  name: "Admin",```
-
-  email: "admin@bookvault.com",
-
-  password: "$2a$10$...", // bcrypt hashEdit `.env` with your configuration:
-
-  role: "admin",```env
-
-  isActive: true# Server Configuration
-
-})PORT=5000
-
-```NODE_ENV=development
-
-
-
-2. Login and access: `http://localhost:5000/admin-secret-dashboard`# MongoDB Connection
-
-MONGODB_URI=mongodb://localhost:27017/bookvault
-
-## 📦 Tech Stack
-
-# Session Secret (change to a random string)
-
-- **Backend**: Node.js, Express.jsSESSION_SECRET=your_session_secret_here_change_this
-
-- **Database**: MongoDB with Mongoose ODM
-
-- **Template Engine**: EJS# JWT Secret (change to a random string)
-
-- **Authentication**: bcrypt, JWT, express-sessionJWT_SECRET=your_jwt_secret_here_change_this
-
-- **Payment**: Razorpay
-
-- **File Upload**: Multer# Admin Panel Configuration
-
-- **Styling**: Tailwind CSSADMIN_URL_PATH=secret-admin-panel
-
+2) Configure environment (copy then edit values)
+```bash
+copy .env.example .env
 ```
-
-## 🛠️ Available Scripts
-
-### Step 4: Start MongoDB
-
-```bashMake sure MongoDB is running on your system:
-
-npm start       # Start production server```powershell
-
-npm run dev     # Start development server (nodemon)# Windows (if MongoDB is installed as a service)
-
-npm run seed    # Seed categories to databasenet start MongoDB
-
-```
-
-# Or start manually
-
-## 📸 Features Overviewmongod
-
-```
-
-- **Public Pages**: Home, Browse, Categories, About, Contact
-
-- **User Dashboard**: Profile, Purchase History, Order Tracking### Step 5: Run the Application
-
-- **Admin Panel**: Book CRUD, User Management, Payment Analytics```bash
-
-- **Payment Flow**: Cart → Razorpay Checkout → Order Verification# Development mode (with nodemon)
-
+3) Start the app
+```bash
+# dev
 npm run dev
+# prod
+npm start
+```
+App runs at http://localhost:5000
 
-## 🔒 Security Features
+## Environment Variables (.env)
+- PORT=5000
+- MONGODB_URI=mongodb://localhost:27017/bookvault
+- SESSION_SECRET=your_secret
+- ADMIN_URL_PATH=/admin-secret-dashboard
+- RAZORPAY_KEY_ID=your_key
+- RAZORPAY_KEY_SECRET=your_secret
 
-# Production mode
+## NPM Scripts
+- npm start — run server
+- npm run dev — run with nodemon
 
-- Password hashing with bcryptnpm start
+## Project Structure (short)
+```
+book-store/
+├─ controllers/    # route handlers (admin, auth, books, payment)
+├─ models/         # Mongoose schemas (Book, User, Category, Payment)
+├─ routes/         # Express routes (public, auth, admin, api, payment)
+├─ views/          # EJS pages + partials
+├─ public/         # css, js, uploads
+├─ config/         # db, multer config
+└─ server.js       # app entry
+```
 
-- JWT-based authentication```
+## Notes
+- Admin URL is configurable via ADMIN_URL_PATH.
+- To seed categories quickly, use the provided seeding script if available.
+- Receipt IDs for Razorpay are constrained to ≤ 40 chars (handled in code).
 
-- Session management
-
-- Input validation & sanitizationThe application will be available at: `http://localhost:5000`
-
-- Protected admin routes
-
-- Secure payment verification## 🔑 Access Points
-
-
-
-## 📄 License### Public Routes
-
-- **Home**: `http://localhost:5000/`
-
-ISC- **Login**: `http://localhost:5000/auth/login`
-
-- **Register**: `http://localhost:5000/auth/register`
-
-## 👤 Author- **About**: `http://localhost:5000/about`
-
-- **Contact**: `http://localhost:5000/contact`
-
-**Kishor-04**- **Help**: `http://localhost:5000/help`
-
-- GitHub: [@Kishor-04](https://github.com/Kishor-04)- **Categories**: `http://localhost:5000/categories`
-
-- Repository: [Book-Store-App](https://github.com/Kishor-04/Book-Store-App)
-
-### User Routes (Requires Authentication)
-
----- **User Dashboard**: `http://localhost:5000/user/dashboard`
-
+---
+Made with ❤️ for readers — BookVault
+- **User Dashboard**: `http://localhost:5000/user/dashboard`
 - **User Profile**: `http://localhost:5000/user/profile`
-
-⭐ Star this repository if you find it helpful!
 
 ### Admin Routes (Requires Admin Role)
 Replace `secret-admin-panel` with your `ADMIN_URL_PATH` from `.env`:
@@ -363,9 +166,6 @@ Error: Cannot find module 'express'
 - EJS (Embedded JavaScript Templates)
 - Tailwind CSS
 - Session-based Authentication
-
-## Contributors
-- [atharvkhardekar](https://github.com/atharvkhardekar)
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
